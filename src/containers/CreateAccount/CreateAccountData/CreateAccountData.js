@@ -82,13 +82,11 @@ class CreateAccountData extends Component{
         // }).then( res => {
         //     console.log(res)
         // })
-        const endpoint = "localhost:3007"
-        const socket = socketIOClient(endpoint);
-
-        // socket.emit('CREATENEWUSER', newUser)
+        
 
         axios.post('/create-user/', newUser )
         .then(response => {
+            console.log(response)
             this.setState({loading:false}) 
             // this.props.history.push('/');
             // console.log('A SU PTM SI JALO')

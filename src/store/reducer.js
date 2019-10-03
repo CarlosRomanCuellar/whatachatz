@@ -55,7 +55,9 @@ const reducer = (state = initialState, action) => {
         const newState = {
             ...initialState,
             logedUser: action.payload.user,
-            
+            contactList: action.payload.contactList,
+            groupList: action.payload.groupList,
+            friendRequests:action.payload.friendRequest,
             activeConver:null
             
         }

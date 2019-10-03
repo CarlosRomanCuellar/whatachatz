@@ -31,45 +31,23 @@ class sidebar extends Component{
                 locale:langString(localStorage.getItem('WACL')),
             })
         }
-        // if(oldProps.groupList !== newProps.groupList){
-        //     this.setState({groupList:newProps.groupList})
-        //     let newArray = []
-        //     // console.log(this.props.groupList)
-        //     for(let group of newProps.groupList){
-        //         // console.log(group)
-        //         newArray.push(<p key={group.id} style={{fontSize:".6em",margin:'5px' , padding:' 5px 0'}}>{group.name}</p>)
-        //         // newArray.push(<Contact key={group.id}>{group.name}</Contact>)
-        //     }
-        //     this.setState({groupArray:newArray})
-        // }
-        // if(oldProps.contactList !== newProps.contactList){
-            
-        //     this.setState({contactList:newProps.contactList})
-        //     this.props.socket.on('yourContact',data =>{
-        //         if(this.state.contactsArray == null){
-        //             this.setState({contactsArray: [<Contact  key={data.id} contactname={ data.userName } contactimg={data.profilePic}/>]})
-        //         }
-        //         else{
-        //             let newArray = [...this.state.contactsArray]
-        //             var found = newArray.find(function(element) {
-        //                 console.log(element.props.contactname == data.userName)
-        //                 return element.props.contactname == data.userName ;
-        //             });
-        //             if(!found){
-        //                 newArray.push(<Contact  key={data.id} contactname={ data.userName } contactimg={data.profilePic}/>)
-        //                 this.setState({contactsArray: newArray})
-        //             }
-        //         }
-        //     })
-            
-        //     for(let con of this.state.contactList){
-        //         this.props.socket.emit('getUser2',con.contactID)
-        //     }
-        // }
+        
     }
 
     componentDidMount(){
-        
+        this.props.socket.on('foundGroupConversation' , (data) => {
+            this.props.onChangeActiveConver(data.id)
+            console.log(data.id)
+            //if(!this.props.activeConversation)
+            this.props.socket.emit('getLast50' , data.id);
+             
+        })
+
+        this.props.socket.on('foundConversation' , (data) => {
+            this.props.onChangeActiveConver(data.converID)
+            this.props.socket.emit('getLast50' , data.converID);
+
+        })
 
         const selectGroupConversation = (event) => {
             if(event.target.id!=="divGroups"){
@@ -104,7 +82,7 @@ class sidebar extends Component{
         // console.log(this.props.groupList)
         for(let group of this.props.groupList){
             // console.log(group)
-            newArray.push(<p key={group.id} style={{fontSize:".6em",margin:'5px' , padding:' 5px 0'}}  onClick={selectGroupConversation}>{group.name}</p>)
+            newArray.push(<p key={group.id} style={{fontSize:".6em",margin:'5px' , padding:' 5px 0'}}  >{group.name}</p>)
             // newArray.push(<Contact key={group.id}>{group.name}</Contact>)
         }
         this.setState({groupArray:newArray})
@@ -119,19 +97,7 @@ class sidebar extends Component{
 
         // })
 
-        this.props.socket.on('foundGroupConversation' , (data) => {
-            this.props.onChangeActiveConver(data.id)
-            console.log(data.id)
-            //if(!this.props.activeConversation)
-            this.props.socket.emit('getLast50' , data.id);
-             
-        })
-
-        this.props.socket.on('foundConversation' , (data) => {
-            this.props.onChangeActiveConver(data.converID)
-            this.props.socket.emit('getLast50' , data.converID);
-
-        })
+        
 
         const selectConversation = (event) => {
             
