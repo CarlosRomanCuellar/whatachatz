@@ -1,0 +1,55 @@
+.Sidebar{
+    background-color: #0e0e0e;
+    border-right: #222222 solid 1px;
+    width: 30%; 
+}
+
+
+.chatControls{
+    display: flex;
+    height: 10%;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: -50px;
+}
+
+.chatControls input{
+    height: 40px;
+    margin-top: -7px;
+    padding: 0px 10px;
+    border-radius: 20px;
+    font-size: .6em;
+    width: 50%;
+    background-color: #37373737;
+    border: #666666 solid 2px;
+}
+.imagebtn{
+    height: 30px;
+    margin: 0 5px;
+}
+
+.contacts{
+    height: 65%;
+    width: 100%;
+    overflow: auto;
+}
+
+.groups{
+    border-top: solid 1px #666666;
+    border-bottom: solid 1px #666666;
+    height: 25%;
+    width: 100%;
+    overflow: auto;
+    /* background-color: aqua */
+}
+
+@media(max-width: 1400px){
+    .Sidebar{
+        width: 25%;
+    }
+}
+@media(max-width: 1250px){
+    .Sidebar{
+        width: 30%;
+    }
+}

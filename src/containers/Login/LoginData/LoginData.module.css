@@ -1,0 +1,47 @@
+.ContactData{
+    margin: 20px auto;
+    width: 80%;
+    text-align: center;
+    box-shadow: 8px 8px 22px #ff0404;
+    border: 1px solid #ff0404;
+    border-radius: 25px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #181818;
+    position: relative;
+    animation: fadeIn 1s;
+}
+a, a:visited{
+    
+    margin: 10px auto;
+    color: #eeeeee;
+    font-size: .5em;
+    text-decoration: none;
+    display: block;
+    justify-content: center;
+    width: 50%;
+    
+}
+
+.signinform{
+    display: flex;
+    /* flex-direction: column; */
+    /* align-content: center; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* justify-items: center; */
+}
+
+
+
+
+@media(min-width: 600px){
+    .ContactData{
+        width: 500px;
+    }
+}
+@keyframes fadeIn{
+    0% {opacity: 0;}
+    50%{opacity: 0;}
+    100% {opacity: 1;}
+}

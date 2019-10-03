@@ -1,0 +1,9 @@
+.Settings{
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+.Settings button{
+    box-sizing: border-box;
+    margin-top: 30px ;
+}

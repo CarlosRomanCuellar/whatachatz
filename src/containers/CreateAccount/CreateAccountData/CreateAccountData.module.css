@@ -1,0 +1,46 @@
+.wrapperCreateForm{
+    font-size: .8em;
+    margin: 20px auto;
+    width: 40%;
+    text-align: left;
+    /* box-shadow: 8px 0px 22px #eeeeee; */
+    border: 2px solid salmon;
+    border-radius: 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: #272727;
+    display: flex;
+    flex-direction: column;
+    align-content: left;
+    align-items: left;
+    position: relative;
+    animation: moveFromRight 1s;
+    overflow: hidden;
+    top: 50px;
+}
+
+.controlsData{
+    /* background-color: aqua; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.controlsData a{
+    font-size: .8em;
+    width: 50%
+}
+
+
+
+@media(max-width: 700px){
+    .wrapperCreateForm{
+        width: 80%;
+    }
+}
+
+@keyframes moveFromRight{
+    0% {left: 200%;}
+    100% {left: 0;}
+}
