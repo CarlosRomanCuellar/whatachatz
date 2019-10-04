@@ -16,5 +16,8 @@ module.exports = function(app){
         target: 'http://localhost:3005',
         changeOrigin: true,
     }))
-    app.use('')
+    app.use('/auth/create' , proxy({
+        target: 'http://localhost:3007',
+        changeOrigin: true,
+    }))
 };

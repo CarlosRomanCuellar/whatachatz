@@ -84,12 +84,10 @@ class CreateAccountData extends Component{
         // })
         
 
-        axios.post('/create-user/', newUser )
+        axios.post('/auth/create', newUser )
         .then(response => {
-            console.log(response)
+            // axios.post('/auth/create' , newUser)
             this.setState({loading:false}) 
-            // this.props.history.push('/');
-            // console.log('A SU PTM SI JALO')
             alert(this.state.locale.theAccountHasBeenCreated)
         }).catch(error => {
             this.setState({loading:false})
