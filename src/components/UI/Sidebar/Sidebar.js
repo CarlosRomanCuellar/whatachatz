@@ -37,7 +37,6 @@ class sidebar extends Component{
     componentDidMount(){
         this.props.socket.on('foundGroupConversation' , (data) => {
             this.props.onChangeActiveConver(data.id)
-            console.log(data.id)
             //if(!this.props.activeConversation)
             this.props.socket.emit('getLast50' , data.id);
              
@@ -126,8 +125,6 @@ class sidebar extends Component{
             
             activeConver.style.backgroundColor = this.props.activeConversation != null ? "red" : '#0e0e0e';
             this.props.socket.emit('getThisConversation', { me:this.props.logedUser , contact: contact } )
-            // console.logs
-            
             
         }
 
@@ -155,8 +152,8 @@ class sidebar extends Component{
             })
             
         })
-        console.log(this.props.contactList)
-        console.log(this.props.groupList)
+        // console.log(this.props.contactList)
+        // console.log(this.props.groupList)
 
         this.props.socket.emit('sendContactList',this.props.contactList);
         this.props.socket.emit('sendGroupList' , this.props.groupList)
@@ -200,9 +197,6 @@ class sidebar extends Component{
                 }
 
             }
-            console.log(event.target.value.toString() == '')
-            // console.log(document.getElementById('divContacts').childNodes[0].childNodes[1].textContent)
-            // console.log(document.getElementById('divGroups'))
 
         }
 
@@ -227,7 +221,7 @@ class sidebar extends Component{
                     <AddContact {...this.props}></AddContact>
                 </Modal>
                 <Modal socket={this.props.socket} show={this.props.creatingGroup} logedUser={this.props.logedUser} bigModal='true'>
-                    <CreateGroup>
+                    <CreateGroup socket={this.props.socket}>
 
                     </CreateGroup>
                 </Modal>

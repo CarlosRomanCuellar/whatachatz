@@ -15,8 +15,9 @@ class CreateGroup extends Component{
         ...this.props,
         groupName:'',
         contactsArray: [],
-        socket: socketIOClient("http://127.0.0.1:3005")
+        socket: this.props.socket
     }
+
 
     componentWillReceiveProps(newProps){
         const oldProps = this.props
@@ -50,7 +51,6 @@ class CreateGroup extends Component{
         })
 
         this.state.socket.on('updateGroups' , (data) => {
-            console.log(data)
             if(this.props.groupList != undefined){
                 let newGroupList = this.props.groupList
                 newGroupList.push(data)
@@ -82,7 +82,6 @@ class CreateGroup extends Component{
                 if(contact.style.backgroundColor === 'red')
                     personsINtheGroup.push (contact.childNodes[1].textContent)
             }
-            console.log(this.state.groupName)
             this.state.socket.emit('CREATEGROUP', {groupName: this.state.groupName ,  listOfParticipants: personsINtheGroup})
             cancelCreateGroup();
             this.setState({groupName:''})

@@ -27,8 +27,6 @@ class ConversationLayout extends Component{
         }
         if(oldProps.activeConver !== newProps.activeConver){
             
-            
-            console.log('recibio nuevas props')
             this.setState({activeRoom: newProps.activeConver})
             // this.props.activeConver = newProps.activeConver
             // console.log(this.props)
@@ -51,11 +49,9 @@ class ConversationLayout extends Component{
         
         let fragment = document.createDocumentFragment();
         const window = document.getElementById('converWrapper')
-        // console.log(this.props.activeConver)
-        console.log(this.state.activeRoom)
         
         this.props.socket.on('messageToDisplay' , (message) => {
-            console.log(message)
+            
             //create the div and also in the server side save the message
             if(message.conversation === this.state.activeRoom ){
                 

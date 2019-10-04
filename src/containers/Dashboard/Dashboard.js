@@ -28,22 +28,26 @@ class Dashboard extends Component{
     componentDidMount(){
 
         if(this.props.logedUser === null){
+            
             this.props.history.replace('/login') 
         }
 
-        const endpoint = "http://127.0.0.1:3005"
-        const socket = socketIOClient(endpoint);
-        socket.emit('GETARRAYS', this.props.logedUser)
-        socket.on('SETARRAYS', (data)=>{
-            this.props.onLoadMyArrays(data)
-        })
+        else{
 
-        this.setState({
-            navbar: <Navbar path={this.props.history} className={classes.Nav} logedUser={this.props.ctr} loingout={this.props.logingout} 
-                showfriendRequest={this.props.showfriendRequest} ></Navbar>,
-            sidebar:<Sidebar language={this.state.language} socket={socket} addingContact={this.props.addingConver} logedUser={this.props.ctr} ></Sidebar>,
-            converLayout: <ConversationLayout language={this.state.language} socket={socket}></ConversationLayout>
-        })
+            const endpoint = "http://127.0.0.1:3005"
+            const socket = socketIOClient(endpoint);
+            socket.emit('GETARRAYS', this.props.logedUser)
+            socket.on('SETARRAYS', (data)=>{
+                this.props.onLoadMyArrays(data)
+            })
+            
+            this.setState({
+                navbar: <Navbar path={this.props.history} socket={socket} className={classes.Nav} logedUser={this.props.ctr} loingout={this.props.logingout} 
+                    showfriendRequest={this.props.showfriendRequest} ></Navbar>,
+                sidebar:<Sidebar language={this.state.language} socket={socket} addingContact={this.props.addingConver} logedUser={this.props.ctr} ></Sidebar>,
+                converLayout: <ConversationLayout language={this.state.language} socket={socket}></ConversationLayout>
+            })
+        }
 
         // if(!localStorage.getItem('WACUser'))
         //     localStorage.setItem('WACUser', this.props)

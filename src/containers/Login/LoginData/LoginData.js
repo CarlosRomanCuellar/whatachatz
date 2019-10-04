@@ -75,9 +75,9 @@ class LoginData extends Component {
                 try {
                     
                    axios.post('/users/login', tryingUser).then( response2 => { 
-                        console.log(response2)
+                        // console.log(response2)
                         try{
-                            console.log('encontro a ' + response2.data.user.userName)
+                            // console.log('encontro a ' + response2.data.user.userName)
                             this.props.onLoginHandler(this.state.loginForm.userName.value, response2.data.user.contactList, response2.data.user.friendRequest, response2.data.user.groupList);
 
                             this.loginContinueHandler();

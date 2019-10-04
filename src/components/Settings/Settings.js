@@ -15,6 +15,7 @@ const settings = (props) => {
         props.onLogoutHandler(false);
     }
     const continueLogOut=()=>{
+        props.socket.emit('LOGOUT')
         localStorage.removeItem('WACUser');
         props.path.push('/login')
     }
