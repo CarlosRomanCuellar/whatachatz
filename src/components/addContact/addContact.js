@@ -52,7 +52,7 @@ class AddContact extends Component{
                 const objToSend = { userName: this.props.logedUser, contactToAdd: this.state.value }
                 // console.log(objToSend)
                 
-                axios.post('/addContact/', objToSend )
+                axios.post('/chat/addContact/', objToSend ) 
                 .then(response => {
                     alert(this.state.locale.friendRequestSent)
                     canceladdContactHandler()

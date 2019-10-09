@@ -26,16 +26,17 @@ class Dashboard extends Component{
     }
 
     componentDidMount(){
-
         if(this.props.logedUser === null){
             
             this.props.history.replace('/login') 
         }
 
         else{
-
-            const endpoint = "http://127.0.0.1:3005"
+            
+            const endpoint = process.env.SOCKET_ENDPOINT
+            
             const socket = socketIOClient(endpoint);
+
             socket.emit('GETARRAYS', this.props.logedUser)
             socket.on('SETARRAYS', (data)=>{
                 this.props.onLoadMyArrays(data)

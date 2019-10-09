@@ -33,7 +33,7 @@ class RequestsForm extends Component{
                 whosendRequest:whosendRequest
             }
 
-            axios.post('/acceptFriendRequest',objToSend).then( response => {
+            axios.post('/chat/acceptFriendRequest',objToSend).then( response => {
                 console.log(response)
                 parent.style.display = 'none'
                 this.props.onUpdateFriends(response.data)
@@ -52,7 +52,7 @@ class RequestsForm extends Component{
                 whosendRequest:whosendRequest
             }
             
-            axios.post('/declineFriendRequest',objToSend).then( response => {
+            axios.post('/chat/declineFriendRequest',objToSend).then( response => {
                 // console.log(response.data)
                 parent.style.display = 'none'
                 this.setState({reqList:response.data});
@@ -66,7 +66,7 @@ class RequestsForm extends Component{
         // console.log(this.props.reqList)
         this.state.reqList.map((x)=>{
             const objToSend = { userID: x }
-            axios.post('/getUser',objToSend).then( response => {
+            axios.post('/chat/getUser',objToSend).then( response => {
                 newRequestArray.push( 
                     <div className={classes.request} key={x}>
                         <Contact key={x} contactname={ response.data.userName } contactimg=''/>

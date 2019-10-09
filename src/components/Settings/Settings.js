@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Button from '../UI/Button/Button'
 import classes from './Settings.module.css'
 import { connect } from 'react-redux'

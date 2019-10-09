@@ -6,7 +6,6 @@ import Button from '../../../components/UI/Button/Button'
 import axios from 'axios';
 import Spinner from '../../../components/UI/Spinner/Spinner'
 import langString from '../../../langStrings'
-import socketIOClient from 'socket.io-client';
 
 
 class CreateAccountData extends Component{
@@ -84,7 +83,7 @@ class CreateAccountData extends Component{
         // })
         
 
-        axios.post('/auth/create', newUser )
+        axios.post('/authser/auth/create', newUser )
         .then(response => {
             // axios.post('/auth/create' , newUser)
             this.setState({loading:false}) 
@@ -101,23 +100,23 @@ class CreateAccountData extends Component{
         });
     }
 
-    makePostRequest = async function () {
+    // makePostRequest = async function () {
 
-        const myApi = axios.create({
-            timeout: 10000,
-            withCredentials: true,
-            transformRequest: [(data) => JSON.stringify(data.data)],
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-            }
-        });
+    //     const myApi = axios.create({
+    //         timeout: 10000,
+    //         withCredentials: true,
+    //         transformRequest: [(data) => JSON.stringify(data.data)],
+    //         headers: {
+    //           'Accept': 'application/json',
+    //           'Content-Type': 'application/json',
+    //         }
+    //     });
 
-        const test = { userName: 'test', password: '1234567' , email: 'c.roman.5458@gmail.com' }
-        let response = await myApi.post('http://localhost:3006/create-user', test);
+    //     const test = { userName: 'test', password: '1234567' , email: 'c.roman.5458@gmail.com' }
+    //     let response = await myApi.post('http://localhost:3006/create-user', test);
 
-        console.log(response.data);
-    }
+    //     console.log(response.data);
+    // }
 
     inputChangedHandler = (event , inputIdentifier) => {
         const updatedcreateForm = {

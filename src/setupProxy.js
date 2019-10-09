@@ -1,22 +1,22 @@
 const proxy = require('http-proxy-middleware');
 module.exports = function(app){
-    app.use('/users/',proxy({
+    app.use('/chat/users/',proxy({
         target: 'http://localhost:3005',
         changeOrigin: true,
     }));
-    app.use('/getUser',proxy({
+    app.use('/chat/getUser',proxy({
         target: 'http://localhost:3005',
         changeOrigin: true,
     }));
-    app.use('/auth/login',proxy({
+    app.use('/authser/auth/login',proxy({
         target: 'http://localhost:3007',
         changeOrigin: true,
     }));
-    app.use('/create-user/',proxy({
+    app.use('/chat/create-user/',proxy({
         target: 'http://localhost:3005',
         changeOrigin: true,
     }))
-    app.use('/auth/create' , proxy({
+    app.use('/authser/auth/create' , proxy({
         target: 'http://localhost:3007',
         changeOrigin: true,
     }))

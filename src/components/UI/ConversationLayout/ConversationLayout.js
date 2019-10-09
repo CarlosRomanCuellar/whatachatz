@@ -5,7 +5,7 @@ import Button from '../Button/Button'
 // import socketIOClient from 'socket.io-client';
 import { connect } from 'react-redux'
 import langString from'../../../langStrings';
-import socketIOClient from 'socket.io-client';
+
 
 class ConversationLayout extends Component{
 

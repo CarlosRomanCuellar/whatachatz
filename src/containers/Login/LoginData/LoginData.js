@@ -68,13 +68,13 @@ class LoginData extends Component {
         // this.props.tryingUser = tryingUser.userName;
         // console.log(this.props)
 
-        axios.post('auth/login',tryingUser)
+        axios.post('/authser/auth/login',tryingUser)
             .then(response => {
                 // console.log(response)
                 this.setState({ loading: false })
                 try {
                     
-                   axios.post('/users/login', tryingUser).then( response2 => { 
+                   axios.post('/chat/users/login', tryingUser).then( response2 => { 
                         // console.log(response2)
                         try{
                             // console.log('encontro a ' + response2.data.user.userName)

@@ -14,10 +14,10 @@ const languageStrings = (option) => {
                 send: 'Send',
                 addContact: 'Add Contact',
                 emailOfNewContact: 'email of new contact',
-                addContact: 'Add Contact',
+                
                 createGroup:'Create Group',
                 groupName: 'Group Name',
-                createGroup: 'Create Group',
+                
                 writeAMessage: 'write a message',
                 searchConversation: 'Search Conversation',
                 youHaveNoContacts: 'you have no contacts',
@@ -31,7 +31,7 @@ const languageStrings = (option) => {
                 back: 'Back',
                 email: 'email'
             }
-            break
+            // break
         }
         case 'Español':{
             return {
@@ -62,7 +62,7 @@ const languageStrings = (option) => {
                 back: 'Atras',
                 email: 'email'
             }
-            break
+            // break
         }
         case 'Français':{
             return {
@@ -93,7 +93,7 @@ const languageStrings = (option) => {
                 back: 'retourner',
                 email: 'email'
             }
-            break
+            // break
         }
         case '中文':{
             return {
@@ -124,7 +124,7 @@ const languageStrings = (option) => {
                 back: '回去',
                 email: '电子邮件'
             }
-            break
+            // break
         }
         default:{
             return {
@@ -140,10 +140,10 @@ const languageStrings = (option) => {
                 send: 'Send',
                 addContact: 'Add Contact',
                 emailOfNewContact: 'email of new contact',
-                addContact: 'Add Contact',
+                
                 createGroup:'Create Group',
                 groupName: 'Group Name',
-                createGroup: 'Create Group',
+                
                 writeAMessage: 'write a message',
                 searchConversation: 'Search Conversation',
                 youHaveNoContacts: 'you have no contacts',
@@ -157,7 +157,7 @@ const languageStrings = (option) => {
                 back: 'back',
                 email: 'email'
             }
-            break
+            // break
         }
     }
 }

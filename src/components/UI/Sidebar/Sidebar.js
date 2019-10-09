@@ -137,7 +137,7 @@ class sidebar extends Component{
 
 
             // console.log(objToSend)
-            axios.post('/getUser',objToSend)
+            axios.post('chat/getUser',objToSend)
             .then(response => {
                 // console.log(response)
                 newContactArray.push( <Contact onClick={selectConversation} key={x.contactID} contactname={ response.data.userName } contactimg=''/>)
